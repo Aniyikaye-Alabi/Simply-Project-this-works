@@ -66,10 +66,16 @@ A short, dated log of everything done on SimplyProject, newest at the bottom. Ea
 
 **27. Secret protection tightened.** Expanded `.gitignore` to ignore env files, keys, certificates, signing material and local Claude settings. I checked the project for such files before committing and found none. The first commit and push follow, so you can watch the pipeline run.
 
+## 2026-11-23
+
+**28. First pipeline run.** The first CI run failed because `ci.yml` used `hashFiles` in job conditions, which GitHub rejects. I removed them and the jobs ran. UI, Rust checks, secret scan and installer build passed. Only the dependency check failed, on a new advisory against the `url` crate.
+
+**29. Vulnerable dependency fixed.** Advisory RUSTSEC-2026-0592 hit `url` 2.5.8. I updated it to 2.5.9 (and `form_urlencoded` 1.2.3). Locally `cargo deny` now passes, and fmt, clippy and tests are green. Pushed to PR #1 to re-run CI.
+
 ## Open items
 
 - Theme switch inside the real app window needs a quick manual check (run `npm run tauri dev` from `app/ui`).
-- No git commit exists yet. CI has never run on GitHub.
+- PR #1 (`chore/project-scaffold` into `dev`) is open and waiting for CI to go green and for your review.
 - Visual Studio 2026 still needs repair so `dev-shell.cmd` can go.
 - Replace the placeholder icon before release.
 - Dev-only npm warning: `minimatch` inside ESLint. It does not ship in the app, and the fix is a breaking ESLint change.
