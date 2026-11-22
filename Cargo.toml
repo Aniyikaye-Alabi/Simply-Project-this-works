@@ -1,0 +1,43 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/sp-core",
+    "crates/sp-display",
+    "crates/sp-capture",
+    "crates/sp-media",
+    "crates/sp-remote",
+    "crates/sp-audio",
+    "crates/sp-signal-server",
+    "app/src-tauri",
+]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.85"
+license = "UNLICENSED"
+publish = false
+
+# Dependencies point inward: everything may depend on sp-core, sp-core depends on nothing internal.
+[workspace.dependencies]
+sp-core = { path = "crates/sp-core" }
+
+# AGENTS.md section 4.2: no panics on input, files, devices, network or IPC paths.
+# Tests are exempt via clippy.toml.
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+indexing_slicing = "deny"
+todo = "deny"
+dbg_macro = "deny"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+panic = "unwind" # the panic hook must keep the output window alive (AGENTS.md 4.2)
+strip = "symbols"

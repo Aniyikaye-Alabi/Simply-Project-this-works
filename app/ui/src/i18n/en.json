@@ -1,0 +1,8 @@
+{
+  "app.name": "SimplyProject",
+  "theme.label": "Theme",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+  "theme.system": "Match Windows",
+  "shell.empty": "Drop files here, or press Add"
+}

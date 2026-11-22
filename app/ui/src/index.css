@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Colour tokens: PRD section 7. Never hard-code hex values in components. */
+:root {
+  --bg: #f3f9f4;
+  --surface: #ffffff;
+  --surface-2: #e7f3ea;
+  --border: #d3e5d8;
+  --text: #1b2b21;
+  --text-muted: #4f6657;
+  --primary: #2a8554;
+  --on-primary: #ffffff;
+  --primary-soft: #cfead7;
+  --live: #d93f3f;
+  --warn: #b26a00;
+  --shadow: 0 1px 3px rgb(27 43 33 / 12%);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1712;
+  --surface: #16211a;
+  --surface-2: #1d2b22;
+  --border: #2a3c31;
+  --text: #e3efe7;
+  --text-muted: #9db5a5;
+  --primary: #6cc28c;
+  --on-primary: #0b1a11;
+  --primary-soft: #23402e;
+  --live: #ff6b6b;
+  --warn: #f2b84b;
+  --shadow: none;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-live: var(--live);
+  --color-warn: var(--warn);
+}
+
+html {
+  font-family: Inter, "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  font-size: 15px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button {
+  min-height: 40px;
+  min-width: 40px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition:
+      background-color 200ms ease-out,
+      color 200ms ease-out,
+      border-color 200ms ease-out;
+  }
+}
