@@ -1,0 +1,30 @@
+# Build output
+target/
+node_modules/
+dist/
+coverage/
+*.log
+
+# Secrets and signing material - never commit
+.env
+.env.*
+*.pfx
+*.p12
+*.pem
+*.key
+*.keystore
+*.jks
+*.cer
+*.crt
+*.snk
+secrets/
+.secrets/
+credentials.json
+*.tauri-signing-key
+tauri.private.key
+
+# Local tool settings and OS junk
+.claude/settings.local.json
+.DS_Store
+Thumbs.db
+desktop.ini
