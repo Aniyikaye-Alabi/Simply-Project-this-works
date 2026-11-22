@@ -40,8 +40,6 @@ jobs:
   rust:
     name: Rust (fmt, clippy, test)
     runs-on: windows-latest
-    # Enabled automatically once the Cargo workspace lands (M0 Rust step).
-    if: ${{ hashFiles('Cargo.toml') != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -55,7 +53,6 @@ jobs:
   rust-supply-chain:
     name: Rust (audit, deny)
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('Cargo.toml') != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: EmbarkStudios/cargo-deny-action@v2
@@ -76,7 +73,6 @@ jobs:
   installer:
     name: Windows installer artefact
     needs: [ui, rust]
-    if: ${{ hashFiles('app/src-tauri/tauri.conf.json') != '' }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
