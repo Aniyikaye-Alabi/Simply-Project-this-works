@@ -72,6 +72,12 @@ A short, dated log of everything done on SimplyProject, newest at the bottom. Ea
 
 **29. Vulnerable dependency fixed.** Advisory RUSTSEC-2026-0592 hit `url` 2.5.8. I updated it to 2.5.9 (and `form_urlencoded` 1.2.3). Locally `cargo deny` now passes, and fmt, clippy and tests are green. Pushed to PR #1 to re-run CI.
 
+## 2026-11-24
+
+**30. Resolver built (M1 start).** Added the resolver to `sp-core`: `Item`, `CueStack` (add, remove, eye, reorder) and `resolve`, which picks blackout, frozen frame, first ready item, or standby. 28 tests pass, including property tests. CI passed on the earlier PR; this work is on branch `feat/sl-6-resolver-in-sp-core`.
+
+**31. Second advisory fixed.** `cargo deny` and `cargo audit` flagged `cookie` 0.18.2 (RUSTSEC-2026-0594). It cannot affect Windows, but CI would fail. Updated to 0.18.3. Also recorded one decision in ADR 0001: freeze with no frame to hold falls back to the normal rule.
+
 ## Open items
 
 - Theme switch inside the real app window needs a quick manual check (run `npm run tauri dev` from `app/ui`).
