@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- M1: `sp-display` logic and fake (OUT-1, OUT-2, OUT-3, OUT-4, OUT-5, OUT-6): `DisplayProvider` trait, `FakeDisplayProvider`, preselect, identify numbers, hot-plug diff, pause/resume by display id, and the go-live check. No Windows implementation or output window yet.
 - M1: `sp-core` resolver (SL-4, SL-5, SL-6): `Item`, `CueStack`, `resolve`, with unit and property tests covering every PRD section 4 and section 9 row. See ADR 0001.
 - M0: UI scaffold (React + Vite + Tailwind), light/dark theme tokens, CI workflow.
 - M0: Tauri 2 app shell (`app/src-tauri`), least-privilege capability, strict CSP, placeholder icons, NSIS debug installer builds.
