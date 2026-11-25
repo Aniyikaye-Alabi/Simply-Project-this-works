@@ -78,6 +78,10 @@ A short, dated log of everything done on SimplyProject, newest at the bottom. Ea
 
 **31. Second advisory fixed.** `cargo deny` and `cargo audit` flagged `cookie` 0.18.2 (RUSTSEC-2026-0594). It cannot affect Windows, but CI would fail. Updated to 0.18.3. Also recorded one decision in ADR 0001: freeze with no frame to hold falls back to the normal rule.
 
+## 2026-11-25
+
+**32. Display logic built (M1).** `sp-display` now has the `DisplayProvider` trait, a scriptable fake, and the pure rules: preselect the projector, number screens for Identify, detect plug and unplug, pause and resume on the same screen by id, and block going live on the app's own screen. 26 tests pass. No Windows code yet.
+
 ## Open items
 
 - Theme switch inside the real app window needs a quick manual check (run `npm run tauri dev` from `app/ui`).
